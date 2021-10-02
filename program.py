@@ -2,7 +2,6 @@
 #also the Root Controller 
 from Controller.system import System
 from Controller.config import Config
-import sys
 class Program():
 	#constants
 	game="Tic-Tac-Toe Online Game"
@@ -14,12 +13,12 @@ class Program():
 		self.devmode=devmode
 		#System Check
 		print("Checking the system...")
-		self.os=System.Check()
-		System(devmode,self.python,self.pyg)
-		#system.CheckPygame()
+		system=System(devmode,self.python,self.pyg)
+		self.os=system.CheckOS()
+		del system
+		print("Starting the Developer Console...")
 		
 		#startup the console
-		#system.Startup()
 		#check the window configuration
 		#c=Config()
 		#Window()
@@ -38,10 +37,9 @@ if __name__== "__main__":
 	# that's how you can invite the whole game in your program
 	devmod=True # you should disable the dev mode before you build the program
 	game=Program(devmod)
-	input()
 	
 #FOR DEV PURPOSE
 #If you want to use my game as a module in your program then
 # you can use these commands to get informations about the program
-print(game) # the print out the name of the program using the __str__() function
-print(repr(game)) # representation of the main Program's object using the __repr__() function
+#print(game) # the print out the name of the program using the __str__() function
+#print(repr(game)) # representation of the main Program's object using the __repr__() function
